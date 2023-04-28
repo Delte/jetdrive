@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include jetdrive *.css
+recursive-include jetdrive *.csv
+recursive-include jetdrive *.html
+recursive-include jetdrive *.ico
+recursive-include jetdrive *.js
+recursive-include jetdrive *.json
+recursive-include jetdrive *.md
+recursive-include jetdrive *.png
+recursive-include jetdrive *.py
+recursive-include jetdrive *.svg
+recursive-include jetdrive *.txt
+recursive-exclude jetdrive *.pyc

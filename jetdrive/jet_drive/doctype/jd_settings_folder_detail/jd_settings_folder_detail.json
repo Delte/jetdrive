@@ -1,0 +1,78 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-22 18:21:30.590194",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "data_type",
+  "parent_folder",
+  "folder",
+  "sub_folder",
+  "parent_entity",
+  "folder_entity",
+  "sub_entity"
+ ],
+ "fields": [
+  {
+   "fieldname": "data_type",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Data Type",
+   "options": "DocType",
+   "reqd": 1
+  },
+  {
+   "fieldname": "folder",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Folder"
+  },
+  {
+   "fieldname": "sub_folder",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sub Folder"
+  },
+  {
+   "fieldname": "parent_folder",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parent Folder"
+  },
+  {
+   "fieldname": "parent_entity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Parent Entity",
+   "options": "Drive Entity"
+  },
+  {
+   "fieldname": "folder_entity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Folder Entity",
+   "options": "Drive Entity"
+  },
+  {
+   "fieldname": "sub_entity",
+   "fieldtype": "Link",
+   "hidden": 1,
+   "label": "Sub Entity",
+   "options": "Drive Entity"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2023-04-12 09:59:01.835814",
+ "modified_by": "Administrator",
+ "module": "Jet Drive",
+ "name": "JD Settings Folder Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

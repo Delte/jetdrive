@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2023-02-22 17:53:45.200954",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "drive_main_entity",
+  "cb01_column",
+  "drive_folder",
+  "template_settings_section",
+  "template",
+  "template_folder",
+  "cb02_column",
+  "project",
+  "project_folder",
+  "sb_folder_settings_section",
+  "folder_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "template",
+   "fieldtype": "Data",
+   "label": "Template Folder"
+  },
+  {
+   "fieldname": "template_folder",
+   "fieldtype": "Link",
+   "label": "Template Folder",
+   "options": "Drive Entity"
+  },
+  {
+   "fieldname": "template_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Template Settings"
+  },
+  {
+   "fieldname": "sb_folder_settings_section",
+   "fieldtype": "Section Break",
+   "label": "Folder Settings"
+  },
+  {
+   "fieldname": "folder_details",
+   "fieldtype": "Table",
+   "options": "JD Settings Folder Detail"
+  },
+  {
+   "fieldname": "cb02_column",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "project",
+   "fieldtype": "Data",
+   "label": "Project "
+  },
+  {
+   "fieldname": "project_folder",
+   "fieldtype": "Link",
+   "label": "Project Folder",
+   "options": "Drive Entity"
+  },
+  {
+   "fieldname": "drive_main_entity",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Drive Main Folder",
+   "options": "Drive Entity",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "drive_main_entity.title",
+   "fieldname": "drive_folder",
+   "fieldtype": "Data",
+   "label": "Drive Folder",
+   "read_only": 1
+  },
+  {
+   "fieldname": "cb01_column",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2023-04-07 11:11:47.015255",
+ "modified_by": "Administrator",
+ "module": "Jet Drive",
+ "name": "JD Settings",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
