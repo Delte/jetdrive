@@ -4,17 +4,9 @@
 from __future__ import unicode_literals
 import frappe, json, uuid, mimetypes, os
 from frappe import msgprint, _
-#from six import string_types, itervalues, iteritems
 
 from frappe.model.document import Document
 from drive.api.files import create_folder
-#from frappe.utils import cstr, flt, cint, nowdate, add_days, comma_and, now_datetime, ceil, today, formatdate, encode, format_time
-#from frappe.utils.csvutils import build_csv_response
-
-#from erpnext.manufacturing.doctype.bom.bom import validate_bom_no, get_children
-#from erpnext.manufacturing.doctype.work_order.work_order import get_item_details, make_job_card, make_stock_entry, stop_unstop
-#from erpnext.setup.doctype.item_group.item_group import get_item_group_defaults
-#from erpnext.stock.doctype.batch.batch import get_batch_qty
 
 def get_folder_entity(strParentEntityID, strFolderName):
 	#Check if given FolderName is exist under the Parent Entity ID
@@ -114,28 +106,28 @@ def process_attached_file(docFile, method = None):
 		)).insert()
 
 @frappe.whitelist()
-def create_project_folders(strProjectName, docProject):
+def create_project_folders(docProject):
 	#We will create folders in the Drive app with permissions
 	blnResult = True
 
-	docProject = frappe.get_doc(json.loads(docProject))
+	#docProject = frappe.get_doc(json.loads(docProject))
 
-	frappe.msgprint(f"{strProjectName} is processing")
+	#frappe.msgprint(f"{strProjectName} is processing")
 
 	docJDSettings = frappe.get_single("JD Settings")
 	for rowSetting in docJDSettings.folder_details:
 		if rowSetting.data_type == "Project":
-			strProjectParsedFolder = frappe.render_template(rowSetting.folder, context={"doc": docProject}, is_path=False)
-			frappe.msgprint(f"Folder Name={strProjectParsedFolder}")
+			#strProjectParsedFolder = frappe.render_template(rowSetting.folder, context={"doc": docProject}, is_path=False)
+			#frappe.msgprint(f"Folder Name={strProjectParsedFolder}")
 			#docProjectEntity = copy_folder_with_permission(docJDSettings.template_folder, strProjectFolder, docJDSettings.project_folder)
-			docDEProject = create_folder(strProjectParsedFolder, docJDSettings.project_folder)
-			print("========================================================================")
-			docDEProjectParent = frappe.get_doc("Drive Entity", docDEProject.parent_drive_entity)
-			print(f"docDEProject={docDEProject} folder created in the {docDEProjectParent.title}")
+			docDEProject = create_folder(docProject, docJDSettings.project_folder)
+			#print("========================================================================")
+			#docDEProjectParent = frappe.get_doc("Drive Entity", docDEProject.parent_drive_entity)
+			#print(f"docDEProject={docDEProject} folder created in the {docDEProjectParent.title}")
 			docDEProject = copy_folder_with_permission(docDEProject, frappe.get_doc("Drive Entity", docJDSettings.template_folder))
-			print(f"docDEProject={docDEProject} processed")
+			#print(f"docDEProject={docDEProject} processed")
 
-	frappe.msgprint(f"{strProjectName} processed")
+	#frappe.msgprint(f"{strProjectName} processed")
 
 	return blnResult
 
